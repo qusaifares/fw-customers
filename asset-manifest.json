@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fw-customers/static/css/main.48299f48.chunk.css",
+    "main.js": "/fw-customers/static/js/main.0f6d0d06.chunk.js",
+    "main.js.map": "/fw-customers/static/js/main.0f6d0d06.chunk.js.map",
+    "runtime-main.js": "/fw-customers/static/js/runtime-main.5d751ca9.js",
+    "runtime-main.js.map": "/fw-customers/static/js/runtime-main.5d751ca9.js.map",
+    "static/js/2.714fa6f7.chunk.js": "/fw-customers/static/js/2.714fa6f7.chunk.js",
+    "static/js/2.714fa6f7.chunk.js.map": "/fw-customers/static/js/2.714fa6f7.chunk.js.map",
+    "static/js/3.3b2994d7.chunk.js": "/fw-customers/static/js/3.3b2994d7.chunk.js",
+    "static/js/3.3b2994d7.chunk.js.map": "/fw-customers/static/js/3.3b2994d7.chunk.js.map",
+    "index.html": "/fw-customers/index.html",
+    "static/css/main.48299f48.chunk.css.map": "/fw-customers/static/css/main.48299f48.chunk.css.map",
+    "static/js/2.714fa6f7.chunk.js.LICENSE.txt": "/fw-customers/static/js/2.714fa6f7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5d751ca9.js",
+    "static/js/2.714fa6f7.chunk.js",
+    "static/css/main.48299f48.chunk.css",
+    "static/js/main.0f6d0d06.chunk.js"
+  ]
+}
