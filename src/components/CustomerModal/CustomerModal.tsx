@@ -109,10 +109,12 @@ const CustomerModal: FC<Props> = ({ type, customer, ...props }) => {
                   required
                   type={field === 'date_birth' ? 'date' : 'text'}
                   value={
-                    field !== 'date_birth'
-                      ? customerData.primary_address[field as keyof CustomerAddress] ||
+                    field === 'date_birth'
+                      ? dateFrom(customerData[field])
+                      : field === 'ssn' && type === CustomersModalType.VIEW
+                      ? `***-**-${customerData[field].substring(customerData[field].length - 4)}`
+                      : customerData.primary_address[field as keyof CustomerAddress] ||
                         (customerData[field as keyof typeof customerData] as string)
-                      : dateFrom(customerData[field])
                   }
                   onChange={(e) =>
                     setCustomerData((prev) => ({
