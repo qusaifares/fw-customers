@@ -109,7 +109,7 @@ const CustomerModal: FC<Props> = ({ type, customer, ...props }) => {
                   required
                   type={field === 'date_birth' ? 'date' : 'text'}
                   value={
-                    field === 'date_birth'
+                    field === 'date_birth' && type === CustomersModalType.VIEW
                       ? dateFrom(customerData[field])
                       : field === 'ssn' && type === CustomersModalType.VIEW
                       ? `***-**-${customerData[field].substring(customerData[field].length - 4)}`
