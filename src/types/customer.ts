@@ -14,7 +14,7 @@ export interface CustomerAddress {
   address_line_1: string;
   city: string;
   state: string;
-  zip_code: number;
+  zip_code: string | number;
 }
 
 export type CreateCustomerDto = Omit<Customer, 'customer_number' | 'join_date'>;
@@ -23,3 +23,8 @@ export type CustomerTableItem = Omit<
   Customer,
   'email' | 'primary_address' | 'mobile_phone_number' | 'join_date'
 > & { age: number };
+
+export enum CustomersModalType {
+  CREATE,
+  VIEW,
+}

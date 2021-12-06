@@ -13,10 +13,15 @@ const Customers: FC<Props> = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [errorMessage, setErrorMessage] = useState<string>('');
 
+  const getCustomer = (customer_number: number) =>
+    customers.find((cust) => cust.customer_number === customer_number);
+
   const populateCustomers = async () => {
     try {
-      const customersRes = await getCustomers({ size: 1000 });
+      const customersRes = await getCustomers({ size: 200 });
       setCustomers(customersRes);
+      const customersRes2 = await getCustomers({ size: 800 });
+      setCustomers([...customersRes, ...customersRes2]);
     } catch (error: any) {
       setErrorMessage('Error fetching customers.');
     }
@@ -56,7 +61,11 @@ const Customers: FC<Props> = () => {
   return (
     <div className='customers'>
       <div className='customers__content'>
-        <CustomTable columns={columns} data={getCustomerTableItems(customers)} />
+        <CustomTable
+          columns={columns}
+          data={getCustomerTableItems(customers)}
+          getCustomer={getCustomer}
+        />
       </div>
     </div>
   );

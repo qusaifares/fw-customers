@@ -1,5 +1,5 @@
 import { GetCustomersOptions } from '../types/api';
-import { Customer } from '../types/customer';
+import { CreateCustomerDto, Customer } from '../types/customer';
 
 const API_URL = 'https://my.api.mockaroo.com/customers.json?key=e95894a0';
 
@@ -11,7 +11,13 @@ export const getCustomers = async (options: GetCustomersOptions = {}): Promise<C
   return res.json();
 };
 
-export const createCustomer = async () => {
-  const res = await request('', { method: 'POST' });
+export const createCustomer = async (createCustomerDto: CreateCustomerDto) => {
+  const res = await request('', {
+    method: 'POST',
+    body: JSON.stringify(createCustomerDto),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
   return res.json();
 };

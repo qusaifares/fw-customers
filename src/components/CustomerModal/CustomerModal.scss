@@ -1,0 +1,13 @@
+.customerModal {
+  &__dialog {
+    max-height: 90vh;
+  }
+
+  &__content {
+    max-height: 90vh;
+  }
+
+  &__body {
+    overflow-y: scroll;
+  }
+}

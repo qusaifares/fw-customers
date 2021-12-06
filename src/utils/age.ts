@@ -1,3 +1,4 @@
+/** Returns age in years */
 export const getAge = (dobString: string, today: Date): number => {
   const [month, day, year] = dobString.split('/').map((str) => +str);
   const dob = new Date(year, month - 1, day);
