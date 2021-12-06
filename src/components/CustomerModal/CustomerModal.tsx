@@ -37,23 +37,27 @@ const CustomerModal: FC<Props> = ({ type, customer, ...props }) => {
       } as CreateCustomerDto)
   );
   const addressFields = ['address_line_1', 'city', 'state', 'zip_code'];
+  const dateFrom = (dateStr: string) => {
+    const [month, day, year] = dateStr.split('/');
+    return `${year}-${month}-${day}`;
+  };
 
   useEffect(() => {
     incrementRenderCount();
+    setCustomerData(
+      customer ||
+        ({
+          first_name: '',
+          last_name: '',
+          date_birth: '',
+          email: '',
+          mobile_phone_number: '',
+          primary_address: { address_line_1: '', city: '', state: '', zip_code: '' },
+          ssn: '',
+        } as CreateCustomerDto)
+    );
     return () => {
       setFormSubmitted(false);
-      setCustomerData(
-        customer ||
-          ({
-            first_name: '',
-            last_name: '',
-            date_birth: '',
-            email: '',
-            mobile_phone_number: '',
-            primary_address: { address_line_1: '', city: '', state: '', zip_code: '' },
-            ssn: '',
-          } as CreateCustomerDto)
-      );
     };
   }, [customer, props.show]);
 
@@ -105,8 +109,10 @@ const CustomerModal: FC<Props> = ({ type, customer, ...props }) => {
                   required
                   type={field === 'date_birth' ? 'date' : 'text'}
                   value={
-                    customerData.primary_address[field as keyof CustomerAddress] ||
-                    (customerData[field as keyof typeof customerData] as string)
+                    field !== 'date_birth'
+                      ? customerData.primary_address[field as keyof CustomerAddress] ||
+                        (customerData[field as keyof typeof customerData] as string)
+                      : dateFrom(customerData[field])
                   }
                   onChange={(e) =>
                     setCustomerData((prev) => ({
